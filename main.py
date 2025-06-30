@@ -18,7 +18,10 @@ app.add_middleware(
 )
 
 # CLIP 모델 및 프로세서 로드 (최초 1회만 인터넷 연결 필요)
-model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+model = CLIPModel.from_pretrained(
+    "openai/clip-vit-base-patch32",
+    cache_dir="/app/.cache/huggingface"  # 권한 있는 디렉터리로 변경
+)
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 import traceback
